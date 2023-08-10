@@ -1,0 +1,36 @@
+set serveroutput on;
+declare 
+valor varchar2(100) := &valor ;
+parcela varchar2(100) := valor/10;
+totalJuros varchar2(100) :=  parcela + parcela*0.03;
+valorFinal varchar2(100) := totalJuros*10;
+begin
+dbms_output.put_line('O valor do produto é :' ||  valor );
+dbms_output.put_line('O valor das parcelas será de : ' || parcela);
+dbms_output.put_line('O total de juros que será adicionado é de  : ' || totalJuros || '  reais por mês');
+dbms_output.put_line('E no fim o total que deverá ser pago é de  : ' || valorFinal);
+end;
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+set serveroutput on;
+declare 
+valor varchar2(100) := &valor ;
+parcela1 varchar2(100) := valor/6;
+parcela2 varchar2(100) := valor/12;
+parcela3 varchar2(100) := valor/18;
+entrada varchar2(100) := valor*0.2;
+jurosA varchar2(100) := parcela1 + parcela1 * 0.1;
+jurosB varchar2(100) := parcela2 + parcela2 * 0.15;
+jurosC varchar2(100) := parcela3 + parcela3 * 0.2;
+valor1 number := jurosA * 6;
+valor2 number := jurosB * 12;
+valor3 number := jurosC * 18;
+
+begin
+dbms_output.put_line('O valor de pagamento em 6 parcelas seria de: ' || valor1);
+dbms_output.put_line('O valor de pagamento em 12 parcelas seria de: ' || valor2);
+dbms_output.put_line('O valor de pagamento em 18 parcelas seria de: ' || valor3);
+end;
