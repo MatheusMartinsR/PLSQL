@@ -1,3 +1,3 @@
-# códigos feitos em aula com PLSQL
+# códigos em PLSQL
 
 #Códigos feitos durante a aula de PLSQL
