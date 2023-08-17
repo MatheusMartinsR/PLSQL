@@ -1,0 +1,45 @@
+set serveroutput on;
+declare 
+valor number := &valor;
+begin
+if valor < 500 then
+dbms_output.put_line('O desconto será de:' || 0.05 * valor);
+elsif valor > 500 and valor <= 1000 then
+dbms_output.put_line('O desconto será de:' || 0.1 * valor);
+elsif valor >= 1500 then
+dbms_output.put_line('O desconto será de:' || 0.15 * valor);
+end if;
+end;
+------------------------------------------------------------------------------
+
+declare 
+idade number := &idade;
+begin
+if idade < 18 then
+dbms_output.put_line('menor de idade');
+elsif idade >= 18 and idade < 60 then
+dbms_output.put_line('Adulto');
+elsif idade >= 60 then 
+dbms_output.put_line('Idoso');
+end if;
+end;
+
+
+-------------------------------------------------------------------------------------
+
+set serveroutput on;
+declare
+precoBase number := &precoBase;
+categoria varchar2(100) := &categoria;
+begin
+if categoria = 'vestuario' then 
+dbms_output.put_line( 'Vai ser adicionado 25% ao preço Base e ficara no total de:  ' || precoBase * 1.25);
+elsif categoria = 'eletronicos' then
+dbms_output.put_line(' Vai ser adicionado 30% ao preço Base e ficaria no total de:  ' ||  precoBase * 1.30);
+elsif categoria = 'calcados' then
+dbms_output.put_line(' Vai ser adicionado 35% ao preco Base e ficaria no total de:  ' || precoBase * 1.35 || ' reais ');
+end if;
+end;
+
+
+    
