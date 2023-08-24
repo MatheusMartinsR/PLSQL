@@ -1,0 +1,38 @@
+declare 
+v_contador number := 1;
+begin
+loop
+dbms_output.put_line(v_contador);
+v_contador := v_contador + 1;
+exit when v_contador > 20;
+end loop;
+end;
+
+
+declare 
+v_contador number(2):= 1;
+begin
+while v_contador <= 20 loop
+dbms_output.put_line(v_contador);
+v_contador := v_contador + 1;
+end loop;
+end;
+
+
+declare 
+v_contador number := 1;
+begin
+for v_contador in reverse 1..20 loop
+dbms_output.put_line(v_contador);
+end loop;
+end;
+
+
+declare
+
+begin 
+for x in (select * from t_produtos where country = 'France') loop
+update t_produtos set quantityordered = x.quantityordered*10 where country=x.country;
+commit;
+end loop;
+end;
