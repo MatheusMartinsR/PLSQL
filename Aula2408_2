@@ -1,0 +1,33 @@
+set serveroutput on;
+
+declare 
+meu_nome varchar2(100);
+begin
+select nome into meu_nome from alunos where rm ='rm966505';
+dbms_output.put_line('Meu nome é: ' || meu_nome);
+end;
+
+declare
+rm varchar2(30) := 'rm966505';
+meu_nome varchar2(100) := 'Meu nome é Matheus';
+begin 
+    insert into alunos values (rm, meu_nome);
+    commit;
+end;
+
+
+declare
+    rm_number varchar2(30):= 'rm966505';
+begin
+    update alunos set nome = 'teste update' where rm = rm_number;
+    delete from alunos where rm = rm_number;
+    commit;
+end;
+
+select * from alunos;
+
+
+
+
+
+
