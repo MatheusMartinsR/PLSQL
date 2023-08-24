@@ -1,0 +1,14 @@
+set serveroutput on;
+
+declare 
+numero number:= 150;
+contador number := 1;
+begin
+while numero <= 150
+loop 
+contador:= numero*contador + 1;
+dbms_output.put_line(numero);
+end loop;
+end;
+
+
