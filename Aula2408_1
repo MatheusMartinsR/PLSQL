@@ -1,0 +1,15 @@
+create table alunos(
+rm varchar(30),
+nome varchar(100)
+);
+
+insert into alunos(
+rm,
+nome
+) values(
+'rm966505',
+'Matheus');
+
+commit;
+
+
