@@ -1,0 +1,14 @@
+select * from t_produtos;
+
+set serveroutput on;
+
+declare
+minha_variavel varchar2(30);
+begin
+select productline into minha_variavel
+from t_produtos 
+where ordernumber = 10107
+ and quantityordered = 30;
+ 
+ dbms_output.put_line('Minha linha de produto é : '|| minha_variavel);
+ end;
