@@ -1,0 +1,77 @@
+set serveroutput on;
+
+declare 
+n1 number:= &n1;
+n2 number:= &n2;
+maior number;
+menor number;
+resultado number;
+begin
+if n1 > n2 then
+maior := n1;
+menor := n2;
+else
+maior := n2;
+menor := n1;
+
+end if;
+resultado := maior/menor;
+
+dbms_output.put_line('O maior valor é: ' || maior);
+dbms_output.put_line('O menor valor é: ' || menor);
+dbms_output.put_line('O resultado da divisão é: ' || resultado);
+end;
+
+--------------------------------------------------------------------------------------------------------------------------
+set serveroutput on;
+
+declare
+salarioAnual number := &salarioAnual;
+bonusAnual number := &bonusAnual / 100;
+resulTotal number := salarioAnual + bonusAnual;
+begin
+dbms_output.put_line('O salario anual foi de: ' || salarioAnual);
+dbms_output.put_line('O bonus anual foi de: ' || bonusAnual);
+dbms_output.put_line('E o resultado total obtido foi de: ' || resulTotal);
+end;
+
+--------------------------------------------------------------------------------------------
+SET SERVEROUTPUT ON
+DECLARE
+    inicio_faixa NUMBER := 157;
+    fim_faixa NUMBER := 3299;
+    soma_pares NUMBER := 0;
+    qtd_pares NUMBER := 0;
+    soma_impares NUMBER := 0;
+    qtd_impares NUMBER := 0;
+    numero NUMBER;
+
+    media_pares NUMBER;
+    media_impares NUMBER;
+BEGIN
+    FOR numero IN inicio_faixa..fim_faixa LOOP
+        IF numero MOD 2 = 0 THEN
+            soma_pares := soma_pares + numero;
+            qtd_pares := qtd_pares + 1;
+        ELSE
+            soma_impares := soma_impares + numero;
+            qtd_impares := qtd_impares + 1;
+        END IF;
+    END LOOP;
+
+    IF qtd_pares > 0 THEN
+        media_pares := soma_pares / qtd_pares;
+    ELSE
+        media_pares := 0;
+    END IF;
+
+    IF qtd_impares > 0 THEN
+        media_impares := soma_impares / qtd_impares;
+    ELSE
+        media_impares := 0;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('Média dos números pares: ' || media_pares);
+    DBMS_OUTPUT.PUT_LINE('Média dos números ímpares: ' || media_impares);
+END;
+
