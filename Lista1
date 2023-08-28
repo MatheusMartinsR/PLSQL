@@ -1,0 +1,18 @@
+DECLARE
+    primeiroNumero NUMBER := &primeiroNumero;
+    segundoNumero NUMBER := &segundoNumero;
+    totalPar NUMBER := 0;
+    totalImpar NUMBER := 0;
+    numero NUMBER;
+BEGIN
+    FOR numero IN primeiroNumero..segundoNumero LOOP
+        IF numero MOD 2 = 0 THEN
+            totalPar := totalPar + 1;
+        ELSE
+            totalImpar := totalImpar + 1;
+        END IF;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('O total de números pares é de: ' || totalPar);
+    DBMS_OUTPUT.PUT_LINE('O total de números ímpares é de: ' || totalImpar);
+END;
+
